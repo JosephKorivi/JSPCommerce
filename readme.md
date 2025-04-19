@@ -54,7 +54,7 @@ JSPCommerce/
 
 ## 🧑‍💻 Author
 ## Joseph Korivi
-- UI/UX Developer | Java Enthusiast | Clean Code
+- Frontend Developer | Java Developer | UI/UX Developer | Clean Code
 - <a href="https://www.linkedin.com/in/josephkorivi/">Linkedin</a>
 - <a href="https://portfolio-one-nu-89.vercel.app/">Portfolio</a>
 - <a href="joseph.korivi0911@gmail.com">Email</a> <br>
@@ -67,5 +67,3 @@ This project is open source and available under the MIT [LICENSE](LICENSE).
 
 ## 🌟 Star This Repo
 If you found this project helpful or inspiring, please consider giving it a ⭐ to show support and stay updated with future improvements.
-
-
