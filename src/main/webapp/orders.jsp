@@ -12,7 +12,7 @@
     <title>JSPCommerce | Orders</title>
     <%@include file="includes/head.jsp"%>
 </head>
-<body class="bg-dark text-light">
+<body>
     <%@include file="includes/navbar.jsp"%>
     <%@include file="includes/footer.jsp"%>
 </body>

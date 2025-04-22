@@ -18,7 +18,7 @@
     <title>JSPCommerce</title>
     <%@include file="includes/head.jsp"%>
 </head>
-<body class="bg-dark text-light">
+<body>
     <%@include file="includes/navbar.jsp"%>
     <div class="container">
         <div class="card-header my-3">All Products</div>
@@ -34,7 +34,7 @@
                                     <h6 class="price">Price : $<%= p.getPrice() %></h6>
                                     <h6 class="catogory">Category : <%= p.getCategory() %>></h6>
                                     <div class="mt-3 d-flex justify-content-between">
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                                        <a href="#" class="btn btn-dark">Add to Cart</a>
                                         <a href="#" class="btn btn-primary">Buy Now</a>
                                     </div>
                                 </div>

@@ -13,12 +13,12 @@
     <title>JSPCommerce | Login</title>
     <%@include file="includes/head.jsp"%>
 </head>
-<body class="bg-dark text-light">
+<body>
     <%@include file="includes/navbar.jsp"%>
     <div class="container">
-        <div class="card bg-dark border border-light w-50 mx-auto my-5">
-            <div class="card-header text-center text-light">User Login</div>
-            <div class="card-body bg-dark border border-light text-light">
+        <div class="card w-50 mx-auto my-5">
+            <div class="card-header text-center">User Login</div>
+            <div class="card-body">
                 <form action="./LoginServlet" method="post">
                     <div class="form-group">
                         <label for="Email Address">Email Address</label>
