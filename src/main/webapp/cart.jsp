@@ -66,9 +66,9 @@
                             <form action="" method="post" class="form-inline">
                             <input type="hidden" name="id" value="<%=c.getId()%>" class="form-input">
                             <div class="form-group d-flex justify-content-between">
-                            <a href="QuantityIncDecServlet" class="btn btn-sm btn-decre"><i class="fas fa-minus-square"></i></a>
-                            <input type="text" name="quantity" value="1" class="form-control" readonly>
-                            <a href="QuantityIncDecServlet" class="btn btn-sm btn-incre"><i class="fas fa-plus-square"></i></a>
+                            <a href="QuantityIncDecServlet?action=dec&id=<%=c.getId()%>" class="btn btn-sm btn-decre"><i class="fas fa-minus-square"></i></a>
+                            <input type="text" name="quantity" value="<%= c.getQuantity()%>" class="form-control" readonly>
+                            <a href="QuantityIncDecServlet?action=inc&id=<%=c.getId()%>" class="btn btn-sm btn-incre"><i class="fas fa-plus-square"></i></a>
                             </div>
                             </form>
                             </td>
