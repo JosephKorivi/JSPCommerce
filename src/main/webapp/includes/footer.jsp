@@ -1,1 +1,2 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<h4 style="font-size: 16px; display: flex; align-items: end; justify-content: center">Copyrights &copy; JosephKorivi | All Rights Reserved 2025.</h4>
