@@ -1,9 +1,24 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.example.jspcommerce.models.*" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.lang.reflect.Array" %>
+<%@ page import="com.example.jspcommerce.connection.DbCon" %>
+<%@ page import="com.example.jspcommerce.dao.ProductDao" %>
 <%
     User auth = (User) request.getSession().getAttribute("auth");
     if (auth != null) {
         request.setAttribute("auth", auth);
+    }
+
+    ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+    List<Cart> cartProduct = null;
+    if (cart_list != null) {
+        ProductDao pDao = new ProductDao(DbCon.getConnection());
+        cartProduct = pDao.getCartProducts(cart_list);
+        double total = pDao.getTotalCartPrice(cart_list);
+        request.setAttribute("cart_list", cart_list);
+        request.setAttribute("total", total);
     }
 %>
 <!DOCTYPE html>
@@ -26,7 +41,7 @@
 
     <div class="container">
         <div class="d-flex py-3">
-            <h3>Total Price : $452</h3>
+            <h3>Total Price : $ ${(total > 0) ? total : 0}</h3>
             <a href="#" class="mx-3 btn btn-primary">Check Outs</a>
         </div>
         <table class="table table-light">
@@ -40,22 +55,28 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Women Shoes</td>
-                <td>Shoes</td>
-                <td>45$</td>
-                <td>
-                    <form action="" method="post" class="form-inline">
-                        <input type="hidden" name="id" value="1" class="form-input">
-                        <div class="form-group d-flex justify-content-between">
-                            <a href="" class="btn btn-sm btn-decre"><i class="fas fa-minus-square"></i></a>
+            <%
+                if (cart_list != null) {
+                    for (Cart c : cartProduct) { %>
+                        <tr>
+                            <td><%= c.getName()%></td>
+                            <td><%= c.getCategory()%></td>
+                            <td><%= c.getPrice()%>$</td>
+                            <td>
+                            <form action="" method="post" class="form-inline">
+                            <input type="hidden" name="id" value="<%=c.getId()%>" class="form-input">
+                            <div class="form-group d-flex justify-content-between">
+                            <a href="QuantityIncDecServlet" class="btn btn-sm btn-decre"><i class="fas fa-minus-square"></i></a>
                             <input type="text" name="quantity" value="1" class="form-control" readonly>
-                            <a href="" class="btn btn-sm btn-incre"><i class="fas fa-plus-square"></i></a>
-                        </div>
-                    </form>
-                </td>
-                <td><a href="" class="btn btn-sm btn-danger">Remove</a></td>
-            </tr>
+                            <a href="QuantityIncDecServlet" class="btn btn-sm btn-incre"><i class="fas fa-plus-square"></i></a>
+                            </div>
+                            </form>
+                            </td>
+                            <td><a href="" class="btn btn-sm btn-danger">Remove</a></td>
+                        </tr>
+                    <%}
+                }
+            %>
             </tbody>
         </table>
     </div>
