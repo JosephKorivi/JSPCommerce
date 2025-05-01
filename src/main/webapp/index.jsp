@@ -3,6 +3,7 @@
 <%@ page import="com.example.jspcommerce.models.*" %>
 <%@ page import="com.example.jspcommerce.dao.ProductDao" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%
     User auth = (User) request.getSession().getAttribute("auth");
     if (auth != null) {
@@ -11,6 +12,11 @@
 
     ProductDao pd = new ProductDao(DbCon.getConnection());
     List<Product> products = pd.getAllProducts();
+
+    ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+    if (cart_list != null) {
+        request.setAttribute("cart_list", cart_list);
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -32,9 +38,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title"><%= p.getName() %></h5>
                                     <h6 class="price">Price : $<%= p.getPrice() %></h6>
-                                    <h6 class="catogory">Category : <%= p.getCategory() %>></h6>
+                                    <h6 class="catogory">Category : <%= p.getCategory() %></h6>
                                     <div class="mt-3 d-flex justify-content-between">
-                                        <a href="#" class="btn btn-dark">Add to Cart</a>
+                                        <a href="AddToCartServlet?id=<%= p.getId() %>" class="btn btn-dark">Add to Cart</a>
                                         <a href="#" class="btn btn-primary">Buy Now</a>
                                     </div>
                                 </div>
