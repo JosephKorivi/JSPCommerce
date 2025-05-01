@@ -5,7 +5,11 @@
 <%@ page import="java.lang.reflect.Array" %>
 <%@ page import="com.example.jspcommerce.connection.DbCon" %>
 <%@ page import="com.example.jspcommerce.dao.ProductDao" %>
+<%@ page import="java.text.DecimalFormat" %>
 <%
+    DecimalFormat dcf = new DecimalFormat("#.##");
+    request.setAttribute("dcf", dcf);
+
     User auth = (User) request.getSession().getAttribute("auth");
     if (auth != null) {
         request.setAttribute("auth", auth);
@@ -41,7 +45,7 @@
 
     <div class="container">
         <div class="d-flex py-3">
-            <h3>Total Price : $ ${(total > 0) ? total : 0}</h3>
+            <h3>Total Price : $ ${(total > 0) ? dcf.format(total) : 0}</h3>
             <a href="#" class="mx-3 btn btn-primary">Check Outs</a>
         </div>
         <table class="table table-light">
@@ -61,7 +65,7 @@
                         <tr>
                             <td><%= c.getName()%></td>
                             <td><%= c.getCategory()%></td>
-                            <td><%= c.getPrice()%>$</td>
+                            <td><%= dcf.format(c.getPrice())%>$</td>
                             <td>
                             <form action="" method="post" class="form-inline">
                             <input type="hidden" name="id" value="<%=c.getId()%>" class="form-input">
@@ -72,7 +76,7 @@
                             </div>
                             </form>
                             </td>
-                            <td><a href="" class="btn btn-sm btn-danger">Remove</a></td>
+                            <td><a href="RemoveFromCartServlet/id=<%= c.getId()%>" class="btn btn-sm btn-danger">Remove</a></td>
                         </tr>
                     <%}
                 }
