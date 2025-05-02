@@ -16,7 +16,7 @@
                 <li class="nav-item">
                     <a class="nav-link position-relative" href="cart.jsp">
                         Cart
-                        <span class="position-absolute top-5 start-100 translate-middle badge rounded-pill bg-danger">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             ${cart_list != null ? cart_list.size() : 0}
                         </span>
                     </a>
