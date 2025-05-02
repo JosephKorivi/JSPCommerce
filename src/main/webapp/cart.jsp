@@ -46,7 +46,7 @@
     <div class="container">
         <div class="d-flex py-3">
             <h3>Total Price : $ ${(total > 0) ? dcf.format(total) : 0}</h3>
-            <a href="#" class="mx-3 btn btn-primary">Check Outs</a>
+            <a href="CheckOutServlet" class="mx-3 btn btn-primary">Check Outs</a>
         </div>
         <table class="table table-light">
             <thead>
@@ -67,7 +67,7 @@
                             <td><%= c.getCategory()%></td>
                             <td><%= dcf.format(c.getPrice())%>$</td>
                             <td>
-                                <form action="" method="post" class="d-flex align-items-center gap-2">
+                                <form action="OrderNowServlet" method="post" class="d-flex align-items-center gap-2">
                                     <input type="hidden" name="id" value="<%=c.getId()%>" class="form-input">
                                     <div class="form-group d-flex align-items-center">
                                         <a href="QuantityIncDecServlet?action=dec&id=<%=c.getId()%>" class="btn btn-sm btn-decre"><i class="fas fa-minus-square"></i></a>

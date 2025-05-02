@@ -66,7 +66,6 @@ public class ProductDao {
 
     public double getTotalCartPrice (ArrayList<Cart> cartList) {
         double sum = 0;
-
         try {
             if (cartList.size() > 0) {
                 for (Cart item : cartList) {
@@ -83,5 +82,30 @@ public class ProductDao {
             e.printStackTrace();
         }
         return sum;
+    }
+
+    public Product getSingleProduct(int id) {
+        Product row = null;
+        try {
+            query = "SELECT * FROM products WHERE id=? ";
+
+            ps = this.con.prepareStatement(query);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                row = new Product();
+                row.setId(rs.getInt("id"));
+                row.setName(rs.getString("name"));
+                row.setCategory(rs.getString("category"));
+                row.setPrice(rs.getDouble("price"));
+                row.setImage(rs.getString("image"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
+        return row;
     }
 }
