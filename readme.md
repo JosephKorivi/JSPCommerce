@@ -52,6 +52,17 @@ JSPCommerce/
 
 ## 📸 Screenshots
 
+- **Home Page**
+![Screenshot 2025-05-02 120142](https://github.com/user-attachments/assets/88daf40f-5ded-48ed-a203-83849a16c093)
+- **After Clicking on the Login Button** 
+![Screenshot 2025-05-02 120156](https://github.com/user-attachments/assets/40f24aa1-8982-421f-81d9-31e6239c7667)
+- **After Login**
+![Screenshot 2025-05-02 120217](https://github.com/user-attachments/assets/8d4bca99-b5e1-40c5-9fd0-e9699b0a1bf3)
+- **Cart Page**
+![Screenshot 2025-05-02 120234](https://github.com/user-attachments/assets/c10bb05f-e71a-424a-aee2-68fb9efeb118)
+- **Orders Page**
+![Screenshot 2025-05-02 120244](https://github.com/user-attachments/assets/f05dd71e-4f74-49fd-9f8f-1eaed13698b9)
+
 ## 🧑‍💻 Author
 ## Joseph Korivi
 - Frontend Developer | Java Developer | UI/UX Developer | Clean Code
